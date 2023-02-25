@@ -1,0 +1,120 @@
+package fileUploadAndUI;
+
+import static org.junit.Assert.assertArrayEquals;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.Color;
+
+
+public class UIvalidator {
+
+WebDriver driver ;
+	
+ final String loginBtnkColor = "#1877f2";
+ final String loginBtnFontSz = "20px";
+ 
+	@Before
+	public void setup ()
+	{
+	   driver = new ChromeDriver();
+	   driver.manage().window().maximize();
+	   driver.manage().deleteAllCookies();
+	   driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+	   driver.get("https://www.facebook.com/");	
+		
+	}
+	@Ignore
+	@Test
+	public void validateBtnColor () throws InterruptedException
+	{
+		
+		WebElement loginBtn  = driver.findElement(By.xpath("//button[@name='login']"));
+		System.out.println("the backgroung color for the login button " + loginBtn.getCssValue("background-color") );
+	
+		String actualLoginBtnColor = loginBtn.getCssValue("background-color");
+		String haxColorOfLoginBtn = rgbaTaHexVal(actualLoginBtnColor);
+		
+		System.out.println("After conversion of rgba color to hex code O/P is ->" + haxColorOfLoginBtn);
+		
+		Assert.assertEquals(loginBtnkColor,rgbaTaHexVal( loginBtn.getCssValue("background-color")));
+		
+	}
+		
+
+	public static String  rgbaTaHexVal(String rgbaValue)
+	{
+		return Color.fromString(rgbaValue).asHex();
+	}
+	
+	
+	@Test
+	public void validateFontSize () throws InterruptedException
+	{
+		
+		WebElement loginBtn  = driver.findElement(By.xpath("//button[@name='login']"));
+		System.out.println("the font size for the login button " + loginBtn.getCssValue("20px") );
+	
+	//	String actualLoginBtnFontSz = loginBtn.getCssValue("20px");
+	//	String haxfontSzOfLoginBtn = rgbaTaHexVal(actualLoginBtnFontSz);
+		
+	//	System.out.println("After conversion of rgba color to hex code O/P is ->" +  haxfontSzOfLoginBtn );
+		
+	//	Assert.assertEquals(loginBtnFontSz,rgbaTaHexVal( loginBtn.getCssValue("20px")));
+		
+	}
+		
+
+	//public static String  rgbaTaHexVal(String rgbaValue)
+	{
+	//	return Color.fromString(rgbaValue).asHex();
+	}
+	
+	
+
+	@After
+   	public void tearDown()
+   	{
+   		
+   	 driver.quit();
+   		
+   	}
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

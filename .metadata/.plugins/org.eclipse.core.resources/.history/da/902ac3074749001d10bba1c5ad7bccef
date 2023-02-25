@@ -1,0 +1,27 @@
+package session2;
+
+public class StrinAndCharConcatination {
+	public static void main(String[] args) 
+	{
+       // string concatenation 
+		String x = "Test";
+		String Y = "Selenium";
+		
+		String c = "100";
+		String d = "200";
+		
+		int a = 100;
+		int b = 200;
+		
+	
+	//System.out.println(c+d);
+	//System.out.println(a+b+x+Y);
+	//System.out.println(a+b+x);
+	System.out.println(x+Y);
+	
+	
+	
+	}
+		
+		
+}

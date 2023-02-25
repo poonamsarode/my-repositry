@@ -1,0 +1,53 @@
+package session2;
+
+public class StrinAndCharConcatination {
+	public static void main(String[] args) 
+	{
+       // string concatenation 
+		String x = "Test";
+		String Y = "Selenium";
+		
+		String c = "100";
+		String d = "200";
+		
+		int a = 100;
+		int b = 200;
+		
+	
+	//System.out.println(c+d);
+   // System.out.println(a+b+x+Y);
+//	System.out.println(a+b+x);
+//	System.out.println(x+Y);
+	
+	//case 
+	int bill = 500;
+	int tax = 30;
+	//int total = bill+tax;
+	//System.out.println(total);
+	System.out.println("food bill is ; " + bill + tax);
+	System.out.println("food bill is ; " + (bill + tax));
+	
+	System.out.println("Hi my name is ");
+	String myName = " Hi my name is ";
+	System.out.println(myName);
+	
+	System.out.println("....................character concatenation.........................");
+	//character concatenation 
+	char c1 = '5'; int z1 = 5;
+	char c2 = '4'; int z4 = 4;
+	char c3 = 'A'; String q1 = "A";
+	char c4 = 'B'; String q2 = "B";
+	
+	System.out.println(c1+c2);
+	
+			
+
+	
+	
+	
+	
+	
+	}
+		
+		
+}

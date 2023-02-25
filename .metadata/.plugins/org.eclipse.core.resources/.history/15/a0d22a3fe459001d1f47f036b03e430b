@@ -1,0 +1,34 @@
+package session12;
+
+public class _3_TestCar {
+	
+// creat a class obj of BMW
+	
+public static void main(String[] args) {
+	
+_2_BMW b = new _2_BMW();
+
+b.Stop();
+b.Start();
+b.fillfuel();
+b.autoParking();	
+b.engine();
+
+System.out.println("-------------------------------------------------------------------------------");
+  
+
+_1_Car c = new _1_Car();
+   
+   c.Stop();
+   c.Start();
+   c.fillfuel();
+   c.engine();
+   // c.autoparking
+}	
+	
+	
+	
+	
+	
+
+}

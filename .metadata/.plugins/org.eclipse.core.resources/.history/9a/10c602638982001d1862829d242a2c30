@@ -1,0 +1,99 @@
+package dropDownValues;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class _2_SelectClass {             //without select class chalange to select any value from the drop Down 
+
+	
+	WebDriver driver;
+	
+	String textTobeSelected = "Delete";
+	
+	@Before
+	public void setup ()
+	
+	{
+		driver = new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+	    driver.get("https://demo.guru99.com/test/simple_context_menu.html");
+						
+		
+	}
+	
+	@Test
+	public void dropDownSelect() throws InterruptedException
+	{
+		
+	WebElement rightClickEle  = driver.findElement(By.xpath("//span[text()='right click me']"));
+	
+	Thread.sleep(2000);
+	Actions act = new Actions (driver);
+	
+	act.contextClick(rightClickEle).build().perform();
+	
+	List <WebElement> optionRitClkEle = driver.findElements(By.xpath("//ul[@class='context-menu-list context-menu-root']//li//span"));
+	
+	for(int i=0; i<optionRitClkEle.size(); i++)
+	{
+		System.out.println(" Options No " + (i+1) + " is -> " + optionRitClkEle.get(i).getText());
+		
+		
+		if(optionRitClkEle.get(i).getText().equalsIgnoreCase(textTobeSelected))
+		{
+		   	
+			optionRitClkEle.get(i).click();
+			
+		}
+		
+	}
+	
+	Thread.sleep(2000);
+	
+	
+	}
+			
+	
+	@After
+   	public void tearDown()
+   	{
+   		
+   	 driver.quit();
+   		
+   	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

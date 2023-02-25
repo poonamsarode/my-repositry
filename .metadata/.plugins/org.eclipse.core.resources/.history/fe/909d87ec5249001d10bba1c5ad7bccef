@@ -1,0 +1,27 @@
+package session2;
+
+public class IncrementAndDecrement {
+	
+public static void main(String[] args) {
+
+	//++ and -- 
+    int a = 1;
+	a = a+1;
+	System.out.println(a);
+	
+	int b = 5;
+	int newval = 5 + 1;
+	System.out.println(newval);
+	
+	int a = 4;
+	a = ++a; 
+	System.out.println(a);
+	
+	
+
+
+
+}
+
+
+}

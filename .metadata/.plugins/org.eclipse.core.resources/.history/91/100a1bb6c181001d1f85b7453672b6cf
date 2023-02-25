@@ -1,0 +1,84 @@
+package moudeActions;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class _1_DragnDrop {
+	
+WebDriver driver;
+
+@Before
+public void setup ()
+{
+	driver = new ChromeDriver ();
+	driver.manage().window().maximize();
+	driver.manage().deleteAllCookies();
+	driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+	driver.get("https://demo.guru99.com/test/drag_drop.html");
+				
+}
+	
+@Test
+public void dropDwon () throws InterruptedException
+
+{
+	
+	WebElement ele1 = driver.findElement(By.xpath("//li[@id='credit2']"));
+	
+	WebElement ele2 = driver.findElement(By.xpath("//div[@class='ui-widget-content']//ol[@id='bank']"));
+	
+	Thread.sleep(2000);
+	
+	Actions act = new Actions(driver);
+	
+//	act.clickAndHold(ele1).moveToElement(ele2).release(ele1).build().perform();              this will be work           
+	
+	act.dragAndDrop(ele1, ele2).perform();                                                  //this is also work 
+	
+	
+	Thread.sleep(3000);
+	
+	  //Part of validation
+	
+	WebElement droppedElement = driver.findElement(By.xpath("//ol[@align='center']/li[@data-id='5']"));
+	
+	Assert.assertEquals("The action for drag n Drop is not perform", "dropped" ,droppedElement.getText());
+	
+	
+}
+	
+	
+@After	
+
+public void tearDwon ()
+{
+	
+	driver.quit();
+	
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,51 @@
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class _0_XpathJunit {
+	
+	WebDriver driver ; 
+	
+	
+	@Before
+	public void setup()
+	{
+
+    driver = new ChromeDriver();
+	
+	driver.manage().window().maximize();
+	driver.manage().deleteAllCookies();
+	driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);	
+	driver.get("https://www.amazon.com/");
+	
+	}
+	
+	@Test
+	public void validateTitle ()
+	{
+		
+	  String actualTitle = driver.getTitle();	
+	  Assert.assertEquals("Amazon.com. Spend less. Smile more.", actualTitle );
+	  
+	}
+	
+	@After
+	public void tearDwon()
+	
+	{
+		
+		driver.quit();
+		
+	}
+	
+	
+	
+
+	
+	
+}

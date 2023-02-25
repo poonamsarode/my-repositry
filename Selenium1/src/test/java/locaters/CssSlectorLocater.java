@@ -1,0 +1,87 @@
+package locaters;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CssSlectorLocater {
+	
+	
+	public static void main(String[] args) throws InterruptedException {
+	
+		WebDriver driver = new ChromeDriver();
+		
+		
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		
+		driver.get("https://www.google.com/");
+		
+		System.out.println(" the title of landing page is - " + driver.getTitle());
+		
+		
+		WebElement searchBox = driver.findElement(By.cssSelector("input.gLFyf"));         //if we use class then input. use 
+		                                                                                   // if we use name [....]		
+		
+	   //searchBox.sendKeys("Aoutomation testing");
+		
+		searchBox.sendKeys("Aoutomation testing" + Keys.ENTER);
+		
+		
+		//Thread.sleep(2000);
+		
+		//WebElement searchBtn = driver.findElement(By.cssSelector("input[name=btnK]"));
+		
+	//	searchBtn.click();
+		
+		Thread.sleep(2000);
+
+		
+		System.out.println(" The title of next page is - " + driver.getTitle());
+		
+		driver.quit();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+
+}

@@ -1,0 +1,36 @@
+package session5;
+
+public class ArrysInJava {
+	
+public static void main(String[] args) 
+{
+                // Arrays is use to store multiple values in a same variable
+	
+	int a = 2;
+	int b = 4;
+	int c = 6;
+    int d = 8;
+    int e = 10;
+    
+ //   int[] q = new int[4];    // 0 1  2 3   this also
+
+    int x[] = new int[3];   // 0 1 2  // this is acceptable     
+
+ //    int[]y = new int [2]; // 0 1       this also
+
+//    int z[] = {10,20,30};      // 0 1 2 
+    
+    x[0] = 10;
+    x[1] = 20;
+    x[2] = 50;
+   // x[3] = 99;
+    
+     System.out.println(x[2]);
+    
+
+}
+
+
+
+
+}

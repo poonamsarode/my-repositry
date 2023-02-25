@@ -1,0 +1,79 @@
+package moudeActions;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+
+public class _3_DragnDrop {
+	
+	
+	WebDriver driver ;
+	
+	@Before
+	public void setup ()
+	{
+	   driver = new ChromeDriver();
+	   driver.manage().window().maximize();
+	   driver.manage().deleteAllCookies();
+	   driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+	   driver.get("https://demoqa.com/droppable");	
+		
+	}
+	
+	@Test
+	public void dropndown () throws InterruptedException
+	{
+		
+		WebElement ele1 = driver.findElement(By.xpath("//div[@id='draggable']"));
+		
+		WebElement ele2 = driver.findElement(By.xpath("//div[@class='simple-drop-container']//div[@id='droppable']"));
+	
+		Thread.sleep(3000);
+		
+		
+		Actions act = new Actions(driver);
+		
+		act.clickAndHold(ele1).moveToElement(ele2).release(ele1).build().perform();
+		
+		Thread.sleep(3000);
+			
+		WebElement droppedElement = driver.findElement(By.xpath("//div[@id='droppable']/p[text()='Dropped!']"));
+		
+		Assert.assertEquals("The Action for drag n drop is not performed", "Dropped",droppedElement.getText());
+	}
+	
+	@After
+	public void tearDown()
+	{
+		
+		driver.quit();
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,20 @@
+package javaprograms;
+
+public class Datatype {
+	
+public static void main(String[] args)	{
+	
+	//System.out.println("Hello java");
+	
+	//System.out.println("i had complete my first program");
+//	System.out.println("Datatype");
+	
+	
+               } 
+	
+
+
+
+
+
+}

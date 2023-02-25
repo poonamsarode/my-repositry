@@ -1,0 +1,34 @@
+package propFileRead;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
+public class ReadPropJava {
+	
+public Properties prop; 
+
+WebDriver driver ;
+
+@Test 
+public void readPropFile()
+{
+	prop = new Properties();
+	
+	try {
+		FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "src\\test\\resources\\Resources\\config.properties");
+	} catch (FileNotFoundException e) {
+		
+		e.printStackTrace();
+	}
+	
+	
+}
+	
+	
+	
+
+}
